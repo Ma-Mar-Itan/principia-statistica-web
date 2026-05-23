@@ -1,19 +1,21 @@
-import createMDX from "@next/mdx";
-import type { NextConfig } from "next";
+const repo = "principia-statistica-web";
 
-const repo = "PRINCIPIA-STATISTICA-WEB";
-
-const nextConfig: NextConfig = {
+const nextConfig = {
   output: "export",
+
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
+
   trailingSlash: true,
-  basePath: process.env.NODE_ENV === "production" ? `/${repo}` : "",
-  assetPrefix: process.env.NODE_ENV === "production" ? `/${repo}/` : "",
-  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"]
+
+  basePath: process.env.NODE_ENV === "production"
+    ? `/${repo}`
+    : "",
+
+  assetPrefix: process.env.NODE_ENV === "production"
+    ? `/${repo}/`
+    : "",
 };
 
-const withMDX = createMDX({});
-
-export default withMDX(nextConfig);
+export default nextConfig;
