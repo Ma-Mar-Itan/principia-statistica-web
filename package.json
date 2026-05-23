@@ -22,6 +22,7 @@
     "katex": "latest",
     "lucide-react": "latest",
     "next": "latest",
+    "next-mdx-remote": "^6.0.0",
     "react": "latest",
     "react-dom": "latest",
     "recharts": "latest",

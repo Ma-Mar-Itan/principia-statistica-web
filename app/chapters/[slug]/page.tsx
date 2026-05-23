@@ -4,7 +4,7 @@ import { ChapterLayout } from "@/components/reader/ChapterLayout";
 import { getChapterBySlug } from "@/lib/book/getChapterBySlug";
 import { getChapters } from "@/lib/book/getChapters";
 import { getNextPrevChapter } from "@/lib/book/getNextPrevChapter";
-import { getChapterMdx } from "@/lib/mdx/compileMdx";
+import { compileChapterMdx } from "@/lib/mdx/compileMdx";
 import { extractHeadings } from "@/lib/mdx/extractHeadings";
 
 export function generateStaticParams() {
@@ -30,13 +30,13 @@ export default async function ChapterPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const chapter = getChapterBySlug(slug);
   if (!chapter) notFound();
-  const Content = getChapterMdx(chapter.slug);
+  const { content } = await compileChapterMdx(chapter);
   const headings = extractHeadings(chapter);
   const { previous, next } = getNextPrevChapter(chapter.slug);
 
   return (
     <ChapterLayout chapter={chapter} headings={headings} previous={previous} next={next}>
-      <Content />
+      {content}
     </ChapterLayout>
   );
 }
