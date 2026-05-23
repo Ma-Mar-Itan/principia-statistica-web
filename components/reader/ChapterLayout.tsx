@@ -2,7 +2,6 @@ import type { ChapterMeta, Heading } from "@/lib/book/schema";
 import { ChapterHeader } from "./ChapterHeader";
 import { ChapterNavigation } from "./ChapterNavigation";
 import { ChapterToc } from "./ChapterToc";
-import { OnThisPage } from "./OnThisPage";
 import { ReadingProgress } from "./ReadingProgress";
 import { ReadingToolbar } from "./ReadingToolbar";
 import { RelatedFigures } from "./RelatedFigures";
@@ -45,8 +44,7 @@ export function ChapterLayout({
         </main>
         <aside className="hidden lg:block">
           <div className="sticky top-24">
-            <OnThisPage headings={headings} />
-            <div className="mt-8 rounded border border-[var(--border)] bg-[var(--paper)] p-5 font-serif italic text-[var(--muted)]">
+            <div className="rounded border border-[var(--border)] bg-[var(--paper)] p-5 font-serif italic text-[var(--muted)]">
               Certainty is the exception. Wisdom lies in knowing the difference.
             </div>
             <RelatedFigures figureIds={chapter.figures} />

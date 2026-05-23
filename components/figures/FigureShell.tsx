@@ -39,10 +39,10 @@ export function FigureShell({ id, number, title, subtitle, controls, chart, summ
           ) : null}
         </div>
       </header>
-      <div className="grid lg:grid-cols-[240px_minmax(0,1fr)_220px]">
-        <aside className="border-b border-[var(--border)] p-5 lg:border-b-0 lg:border-r">{controls}</aside>
-        <div className="min-h-[360px] p-5">{chart}</div>
-        <aside className="border-t border-[var(--border)] p-5 lg:border-l lg:border-t-0">{summary}</aside>
+      <div className="grid">
+        <aside className="border-b border-[var(--border)] p-5">{controls}</aside>
+        <div className="min-h-[420px] p-5">{chart}</div>
+        <aside className="border-t border-[var(--border)] p-5">{summary}</aside>
       </div>
       {insight || caption ? (
         <footer className="border-t border-[var(--border)] bg-[var(--paper-muted)] px-5 py-4">
